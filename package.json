@@ -1,0 +1,28 @@
+{
+	"name": "cnbridge",
+	"version": "1.0.0",
+	"description": "A command line interface for syncing Canvas modules with Notion workspaces",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MatterMr/cnbridge.git"
+	},
+	"keywords": [
+		"cnbridge"
+	],
+	"author": "MatterMr",
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/MatterMr/cnbridge/issues"
+	},
+	"homepage": "https://github.com/MatterMr/cnbridge#readme",
+	"bin": {
+		"cnbridge": "./index.js"
+	},
+	"dependencies": {
+		"yargs": "^17.7.2"
+	}
+}
