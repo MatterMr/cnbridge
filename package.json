@@ -2,9 +2,10 @@
 	"name": "cnbridge",
 	"version": "1.0.0",
 	"description": "A command line interface for syncing Canvas modules with Notion workspaces",
-	"main": "index.js",
+	"main": "src/index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"lint": "eslint .  --ext .js",
+		"lint-fix": "eslint --fix .  --ext .js"
 	},
 	"repository": {
 		"type": "git",
@@ -20,9 +21,16 @@
 	},
 	"homepage": "https://github.com/MatterMr/cnbridge#readme",
 	"bin": {
-		"cnbridge": "./index.js"
+		"cnbridge": "src/index.js"
 	},
 	"dependencies": {
 		"yargs": "^17.7.2"
+	},
+	"devDependencies": {
+		"eslint": "^8.44.0",
+		"eslint-config-standard": "^17.1.0",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-n": "^16.0.1",
+		"eslint-plugin-promise": "^6.1.1"
 	}
 }
