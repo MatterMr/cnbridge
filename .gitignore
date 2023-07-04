@@ -1,2 +1,3 @@
 node_modules
 /src/commands/test.js
+/src/config/config.json
