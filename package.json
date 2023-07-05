@@ -1,36 +1,30 @@
 {
-	"name": "cnbridge",
-	"version": "1.0.0",
-	"description": "A command line interface for syncing Canvas modules with Notion workspaces",
-	"main": "src/index.js",
-	"scripts": {
-		"lint": "eslint .  --ext .js",
-		"lint-fix": "eslint --fix .  --ext .js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/MatterMr/cnbridge.git"
-	},
-	"keywords": [
-		"cnbridge"
-	],
-	"author": "MatterMr",
-	"license": "GPL-3.0",
-	"bugs": {
-		"url": "https://github.com/MatterMr/cnbridge/issues"
-	},
-	"homepage": "https://github.com/MatterMr/cnbridge#readme",
-	"bin": {
-		"cnbridge": "src/index.js"
-	},
-	"dependencies": {
-		"yargs": "^17.7.2"
-	},
-	"devDependencies": {
-		"eslint": "^8.44.0",
-		"eslint-config-standard": "^17.1.0",
-		"eslint-plugin-import": "^2.27.5",
-		"eslint-plugin-n": "^16.0.1",
-		"eslint-plugin-promise": "^6.1.1"
-	}
+  "name": "cnbridge",
+  "version": "1.0.0",
+  "description": "A command line interface for syncing Canvas modules with Notion workspaces",
+  "main": "src/index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatterMr/cnbridge.git"
+  },
+  "keywords": [
+    "cnbridge"
+  ],
+  "author": "MatterMr",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/MatterMr/cnbridge/issues"
+  },
+  "homepage": "https://github.com/MatterMr/cnbridge#readme",
+  "bin": {
+    "cnbridge": "src/index.js"
+  },
+  "dependencies": {
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.44.0",
+    "prettier": "^2.8.8"
+  }
 }
