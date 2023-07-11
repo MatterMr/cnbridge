@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A command line interface for syncing Canvas modules with Notion workspaces",
   "main": "src/index.js",
+  "type": "commonjs",
   "scripts": {},
   "repository": {
     "type": "git",
@@ -21,6 +22,8 @@
     "cnbridge": "src/index.js"
   },
   "dependencies": {
+    "graphql": "^16.7.1",
+    "graphql-request": "^6.1.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
