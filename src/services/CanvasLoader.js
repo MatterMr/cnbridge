@@ -27,7 +27,7 @@ module.exports = class CanvasLoader {
   /**
    * Handles the formatting of errors
    *
-   * ! In the future this function should handle cases where data is returned and the rest can be logged
+   * ! In the future this function should also consider non destructive errors
    *
    * @param {Array} errors - Array of errors
    */
@@ -49,12 +49,10 @@ module.exports = class CanvasLoader {
    */
   async getAllCourses() {
     const query = `
-      query MyQuery {
+      query getAllCourses {
         allCourses {
           name
           id
-          nood
-          nd
         }
       }
     `;
