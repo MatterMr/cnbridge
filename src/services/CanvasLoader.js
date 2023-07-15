@@ -59,4 +59,20 @@ module.exports = class CanvasLoader {
     const response = await this._GQLRequest(query);
     return response.allCourses;
   }
+  async getAssignmentGroups(courseId) {
+    const query = `
+      query getAssignmentGroups {
+        course(id: "${courseId}") {
+          assignmentGroupsConnection {
+            nodes {
+              id
+              name
+            }
+          }
+        }
+      }
+      `;
+    const response = await this._GQLRequest(query);
+    return response.course.assignmentGroupsConnection.nodes;
+  }
 };
