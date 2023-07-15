@@ -24,6 +24,11 @@ module.exports = class CanvasLoader {
       .request(formattedQuery)
       .catch((err) => this._GQLErrorHandler(err.response));
   }
+  _formatQueryOptions(options) {
+    let formattedString = "";
+    options.forEach((element) => (formattedString += `${element}\n`));
+    return formattedString;
+  }
   /**
    * Handles the formatting of errors
    *
@@ -33,40 +38,36 @@ module.exports = class CanvasLoader {
    */
   _GQLErrorHandler(response) {
     const errorBatch = [];
+    console.log(response.errors);
     response.errors.forEach((err) => {
       errorBatch.push(new Error(`${err.extensions.code} : ${err.message}`));
     });
     throw errorBatch;
   }
   /**
-   * Gets all the Courses accesable to the user
+   *  Gets a list of all courses
    *
-   * @typedef {Object} allCourses
-   * @property {string} allCourses[].name - The name of the course
-   * @property {string} allCourses[].id - The id of the course
-   *
-   * @return {allCourses}
+   * @param {[string]} [options=["name", "id"]] Array of query perameters
+   * @return {Array<Object>} Array of course objects
    */
-  async getAllCourses() {
+  async getAllCourses(options = ["name", "id"]) {
     const query = `
       query getAllCourses {
         allCourses {
-          name
-          id
+          ${this._formatQueryOptions(options)}
         }
       }
     `;
     const response = await this._GQLRequest(query);
     return response.allCourses;
   }
-  async getAssignmentGroups(courseId) {
+  async getAssignmentGroups(courseId, options = ["name", "id"]) {
     const query = `
       query getAssignmentGroups {
         course(id: "${courseId}") {
           assignmentGroupsConnection {
             nodes {
-              id
-              name
+              ${this._formatQueryOptions(options)}
             }
           }
         }
@@ -74,5 +75,21 @@ module.exports = class CanvasLoader {
       `;
     const response = await this._GQLRequest(query);
     return response.course.assignmentGroupsConnection.nodes;
+  }
+  async getAssignmentsFromGroup(
+    assignmentGroupId,
+    options = ["name", "id", "htmlUrl", "dueAt"]
+  ) {
+    const query = `query getAssignmentsFromGroup {
+      assignmentGroup(id: "${assignmentGroupId}") {
+        assignmentsConnection {
+          nodes {
+            ${this._formatQueryOptions(options)}
+          }
+        }
+      }
+    }`;
+    const response = await this._GQLRequest(query);
+    return response.assignmentGroup.assignmentsConnection.nodes;
   }
 };
