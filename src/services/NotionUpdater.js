@@ -1,0 +1,1 @@
+module.export = class NotionUpdater {};
