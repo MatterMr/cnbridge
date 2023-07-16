@@ -1,4 +1,5 @@
 const { GraphQLClient, gql } = require("graphql-request");
+const { array } = require("yargs");
 
 module.exports = class CanvasLoader {
   constructor(ENDPOINT, CANVAS_API_TOKEN) {
@@ -24,9 +25,20 @@ module.exports = class CanvasLoader {
       .request(formattedQuery)
       .catch((err) => this._GQLErrorHandler(err.response));
   }
+  /**
+   * Returns a string with a new line between each option for graphql formatting.
+   *
+   * @param {[String]} options
+   * @returns {[String]}
+   */
   _formatQueryOptions(options) {
     let formattedString = "";
-    options.forEach((element) => (formattedString += `${element}\n`));
+    options.forEach((element) => {
+      if (typeof element == array) {
+        throw Error("No nested options");
+      }
+      formattedString += `${element}\n`;
+    });
     return formattedString;
   }
   /**
@@ -61,6 +73,12 @@ module.exports = class CanvasLoader {
     const response = await this._GQLRequest(query);
     return response.allCourses;
   }
+  /**
+   *
+   * @param {String} courseId
+   * @param {[String]} options
+   * @returns
+   */
   async getAssignmentGroups(courseId, options = ["name", "id"]) {
     const query = `
       query getAssignmentGroups {
@@ -76,6 +94,12 @@ module.exports = class CanvasLoader {
     const response = await this._GQLRequest(query);
     return response.course.assignmentGroupsConnection.nodes;
   }
+  /**
+   *
+   * @param {*} assignmentGroupId
+   * @param {*} options
+   * @returns
+   */
   async getAssignmentsFromGroup(
     assignmentGroupId,
     options = ["name", "id", "htmlUrl", "dueAt"]
