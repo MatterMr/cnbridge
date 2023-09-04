@@ -106,4 +106,17 @@ This configuration system is bound to change as time goes on, but for now it is 
 
 Before committing, you should formatt your code. Please, I beg of you.
 
-Personaly
+```shell
+npm run lint
+npm run lint-fix
+```
+
+Personaly I use a combination of [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) (with another merging extension [ESLint Prettier](https://marketplace.visualstudio.com/items?itemName=rvest.vs-code-prettier-eslint)) vscode extensions. But using only ESLint in whatever IDE you chose should suffice.
+
+## Contributing
+
+This project is still quite early on, so there are large and abstract tasks that need to be taken on before the project is fully functional. Some of which I want to tackle on my own for the sake of learning, but sharing insight and ideas is a key focus of any project I work on, so feel free to contribute.
+
+The end goal of this project is to help people learn, either by developing the project, or by utilizing the tool to remove an extra stress off of your course load.
+
+Contact @mattermr on discord for questions, or just to rant about what I am doing wrong. This is my first open sourced, collaborative project, so pardon my dust as I figure things out.
