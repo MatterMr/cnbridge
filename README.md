@@ -25,10 +25,8 @@ This is a pet project that I am working in tandem to other things,
 </p>
 Soooooo... development will be slow, but will have set deadlines.
 
-Project status will be tracked through a Notion workspace (Notion project uses notion :3).
+Project status will be tracked through a github project tab.
 While the projects main communication will be on the Mines ACM discord.
-
-Notion: (TBA)
 
 Discord: [Mines ACM](https://discord.gg/GJBCpnGhpa)
 

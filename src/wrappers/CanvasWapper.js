@@ -1,7 +1,6 @@
 const { GraphQLClient, gql } = require("graphql-request");
-const { array } = require("yargs");
 
-module.exports = class CanvasLoader {
+module.exports = class CanvasWrapper {
   constructor(ENDPOINT, CANVAS_API_TOKEN) {
     this._API_TOKEN = CANVAS_API_TOKEN;
     this._graphQLClient = new GraphQLClient(ENDPOINT + "/api/graphql", {
@@ -34,7 +33,7 @@ module.exports = class CanvasLoader {
   _formatQueryOptions(options) {
     let formattedString = "";
     options.forEach((element) => {
-      if (typeof element == array) {
+      if (typeof element == Array) {
         throw Error("No nested options");
       }
       formattedString += `${element}\n`;
