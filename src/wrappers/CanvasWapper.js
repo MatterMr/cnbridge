@@ -160,4 +160,19 @@ module.exports = class CanvasWrapper {
     const response = await this._GQLRequest(query, { courseId: courseId });
     return response.course.modulesConnection.nodes;
   }
+  async getAllUsers(courseId){
+    const query = `
+    query getAllStudents($courseId : ID) {
+      course(id: $courseId) {
+        usersConnection {
+          nodes {
+            name
+            id
+          }
+        }
+      }
+    }`
+    const response = await this._GQLRequest(query, {courseId: courseId});
+    return response.course.usersConnection.nodes;
+  }
 };
